@@ -6,9 +6,6 @@ import * as serviceWorker from './serviceWorker';
 import { AppProvider } from './context/context';
 import { Auth0Provider } from '@auth0/auth0-react';
 
-// domian: dev-k7lyd7jj.us.auth0.com
-// client id: HKLzvcV91u0Irf8uoX6HYYQBQo7RivNQ
-
 ReactDOM.render(
   <React.StrictMode>
     <Auth0Provider

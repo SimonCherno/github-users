@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { MdBusiness, MdLocationOn, MdLink } from 'react-icons/md';
 import { useGlobalContext } from '../context/context';
 const Card = () => {
-  const {githubUser:{login, name, avatar_url, url, twitter_username, bio, company, location, blog}} = useGlobalContext();
+  const {githubUser:{name, avatar_url, url, twitter_username, bio, company, location, blog}} = useGlobalContext();
   return <Wrapper>
     <header>
       <img src={avatar_url} alt={name} />

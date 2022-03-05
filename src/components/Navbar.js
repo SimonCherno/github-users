@@ -1,13 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useAuth0 } from '@auth0/auth0-react';
-import { useGlobalContext } from '../context/context';
 
 const Navbar = () => {
-  const {loginWithRedirect, isAuthenticated, logout, user, isLoading} = useAuth0();
+  const {loginWithRedirect, isAuthenticated, logout, user} = useAuth0();
   const isUser = isAuthenticated && user
   return <Wrapper>
-    {isUser && <img src={user.picture} alt={user.name}></img>}
+    {isUser && <img src={user.picture} alt='user'></img>}
     {isUser && <h4>welcome, <strong>{user.name}</strong></h4>}
     {isUser
       ? <button onClick={() => logout({ returnTo: window.location.origin})}>logout</button>
@@ -15,27 +14,6 @@ const Navbar = () => {
     }
   </Wrapper>
 };
-
-// {
-//   "sub": "facebook|10225182883497968",
-//   "given_name": "Simon",
-//   "family_name": "Chernoivanov",
-//   "nickname": "Simon Chernoivanov",
-//   "name": "Simon Chernoivanov",
-//   "picture": "https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=10225182883497968&height=50&width=50&ext=1645534134&hash=AeRVFp897vILWSUXMiI",
-//   "updated_at": "2022-01-23T12:48:54.485Z"
-// }
-
-// {
-//   "sub": "google-oauth2|107448126536227748777",
-//   "given_name": "Simon",
-//   "family_name": "Chernoivanov",
-//   "nickname": "simon.cherno",
-//   "name": "Simon Chernoivanov",
-//   "picture": "https://lh3.googleusercontent.com/a/AATXAJxBtOMb4hHcKF1vIdsId7ITwrjEVMmTcXwcpd91=s96-c",
-//   "locale": "en",
-//   "updated_at": "2022-01-23T12:49:56.376Z"
-// }
 
 const Wrapper = styled.nav`
   padding: 1.5rem;
